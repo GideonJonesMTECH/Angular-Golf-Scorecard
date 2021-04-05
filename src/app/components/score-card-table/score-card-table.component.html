@@ -1,1 +1,98 @@
-<app-score-card-player-row></app-score-card-player-row>
+<div>
+  <table>
+    <tr>
+      <th colspan="100%">
+        <!-- {{ courseName }}, {{ courseAddress }},
+        <a href="{{ courseWeb }}" target="_blank">{{ courseWeb }}</a> -->
+        course info
+      </th>
+    </tr>
+    <tr>
+      <th>Players</th>
+      <th>Hole 1</th>
+      <th>Hole 2</th>
+      <th>Hole 3</th>
+      <th>Hole 4</th>
+      <th>Hole 5</th>
+      <th>Hole 6</th>
+      <th>Hole 7</th>
+      <th>Hole 8</th>
+      <th>Hole 9</th>
+      <th>Out Total</th>
+      <th>Hole 10</th>
+      <th>Hole 11</th>
+      <th>Hole 12</th>
+      <th>Hole 13</th>
+      <th>Hole 14</th>
+      <th>Hole 15</th>
+      <th>Hole 16</th>
+      <th>Hole 17</th>
+      <th>Hole 18</th>
+      <th>In Total</th>
+      <th>Total</th>
+    </tr>
+    <tr *ngFor="let number of [1, 2]">
+      <td>
+        <input placeholder="Player {{ number }}" id="Player{{ number }}" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score1" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score2" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score3" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score4" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score5" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score6" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score7" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score8" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score9" />
+      </td>
+      <td id="{{ number }}outTotal">out</td>
+      <td>
+        <input type="number" id="{{ number }}Score10" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score11" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score12" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score13" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score14" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score15" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score16" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score17" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score18" />
+      </td>
+      <td id="{{ number }}inTotal">in</td>
+      <td id="{{ number }}total">total</td>
+      <!-- <td>{{ 1Score1.value }}</td> -->
+    </tr>
+  </table>
+</div>

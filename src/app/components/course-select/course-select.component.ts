@@ -1,22 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CoursesList } from 'src/app/interfaces/courses-list';
+import { GetAPIService } from 'src/app/services/get-api.service';
 
 @Component({
   selector: 'app-course-select',
   templateUrl: './course-select.component.html',
-  styleUrls: ['./course-select.component.scss']
+  styleUrls: ['./course-select.component.scss'],
 })
 export class CourseSelectComponent implements OnInit {
+  constructor(private router: Router, private api: GetAPIService) {}
 
-  constructor(
-    private router: Router
-  ) { }
+  coursesInfo;
 
   ngOnInit(): void {
+    this.api.apiCall().subscribe((data) => {
+      console.warn('get API data', data);
+      this.setup(data as CoursesList);
+    });
   }
 
-  goToScorecard(fieldName: string): void {
-    this.router.navigate(['./score-card', {name: fieldName}]);
+  setup(data: CoursesList): void {
+    console.warn(data.courses);
+    this.coursesInfo = data.courses;
   }
 
+  goToScorecard(selectedCourse: number): void {
+    this.router.navigate([
+      './score-card',
+      { id: this.coursesInfo[selectedCourse].id + '' },
+    ]);
+  }
 }

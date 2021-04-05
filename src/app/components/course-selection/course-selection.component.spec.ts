@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ScoreCardPlayerRowComponent } from './score-card-player-row.component';
+import { CourseSelectionComponent } from './course-selection.component';
 
-describe('ScoreCardTableRowComponent', () => {
-  let component: ScoreCardPlayerRowComponent;
-  let fixture: ComponentFixture<ScoreCardPlayerRowComponent>;
+describe('CourseSelectionComponent', () => {
+  let component: CourseSelectionComponent;
+  let fixture: ComponentFixture<CourseSelectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ScoreCardPlayerRowComponent ]
+      declarations: [ CourseSelectionComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ScoreCardPlayerRowComponent);
+    fixture = TestBed.createComponent(CourseSelectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

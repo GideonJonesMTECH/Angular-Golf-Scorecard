@@ -1,1 +1,11 @@
-<p>course-select works!</p>
+<div>
+  <form>
+    <div *ngFor="let number of [0, 1, 2]">
+      <app-course-selection
+        [(info)]="coursesInfo[number]"
+      ></app-course-selection>
+    </div>
+    <label for="playerCount">Player Count:</label>
+    <input type="text" name="playerCount" id="playerCount" />
+  </form>
+</div>

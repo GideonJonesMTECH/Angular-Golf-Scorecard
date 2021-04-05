@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseSelectComponent } from './components/course-select/course-select.component';
 import { ScoreCardTableComponent } from './components/score-card-table/score-card-table.component';
-import { ScoreCardPlayerRowComponent } from './components/score-card-player-row/score-card-player-row.component';
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 
 import { MaterialModule } from './modules/material.module';
+
+import { HttpClientModule } from '@angular/common/http';
+import { CourseSelectionComponent } from './components/course-selection/course-selection.component';
 
 @NgModule({
   declarations: [
@@ -17,18 +19,18 @@ import { MaterialModule } from './modules/material.module';
     CourseSelectComponent,
     ScoreCardTableComponent,
     TopNavbarComponent,
-    ScoreCardPlayerRowComponent,
+    CourseSelectionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
+
     MaterialModule,
   ],
-  exports: [
-    MaterialModule
-  ],
+  exports: [MaterialModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
