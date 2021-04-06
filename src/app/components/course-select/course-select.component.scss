@@ -1,9 +1,10 @@
-div {
+form {
   display: flex;
   flex-direction: column;
   div {
-    display: flex;
     padding: 3em;
     justify-content: center;
+    display: flex;
+    flex-direction: row;
   }
 }

@@ -1,5 +1,5 @@
 <div>
-  <form>
+  <form name="courseForm">
     <div *ngFor="let number of [0, 1, 2]">
       <app-course-selection
         [(info)]="coursesInfo[number]"
@@ -7,5 +7,6 @@
     </div>
     <label for="playerCount">Player Count:</label>
     <input type="text" name="playerCount" id="playerCount" />
+    <input type="submit" />
   </form>
 </div>

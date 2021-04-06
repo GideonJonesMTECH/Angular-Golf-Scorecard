@@ -1,15 +1,26 @@
 div {
+  --dark-clr: #505050;
   border-radius: 0.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #2e2e2e;
+  background-color: var(--dark-clr);
   color: ghostwhite;
   padding: 2em;
+  width: 20em;
+  cursor: pointer;
   img {
     height: 10em;
     width: 10em;
     border-radius: 1em;
+  }
+  input {
+    --size: 2em;
+    transition: transform 300ms ease-in-out;
+    margin-bottom: var(--size);
+    width: var(--size);
+    height: var(--size);
+    border: 2px solid var(--dark-clr);
   }
 }

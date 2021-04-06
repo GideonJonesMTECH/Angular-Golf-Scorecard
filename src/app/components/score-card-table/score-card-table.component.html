@@ -2,13 +2,14 @@
   <table>
     <tr>
       <th colspan="100%">
-        <!-- {{ courseName }}, {{ courseAddress }},
-        <a href="{{ courseWeb }}" target="_blank">{{ courseWeb }}</a> -->
-        course info
+        {{ courseData.name }}, {{ courseData.addr1 }},
+        <a href="{{ courseData.website }}" target="_blank">{{
+          courseData.website
+        }}</a>
       </th>
     </tr>
     <tr>
-      <th>Players</th>
+      <th>Hole</th>
       <th>Hole 1</th>
       <th>Hole 2</th>
       <th>Hole 3</th>
@@ -19,6 +20,7 @@
       <th>Hole 8</th>
       <th>Hole 9</th>
       <th>Out Total</th>
+      <td rowspan="100%"></td>
       <th>Hole 10</th>
       <th>Hole 11</th>
       <th>Hole 12</th>
@@ -31,7 +33,147 @@
       <th>In Total</th>
       <th>Total</th>
     </tr>
-    <tr *ngFor="let number of [1, 2]">
+    <tr
+      *ngFor="
+        let number;
+        in: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+      "
+    >
+      <th>{{ courseData.holes[0].teeBoxes[number].teeColorType }}</th>
+      <th>{{ courseData.holes[0].teeBoxes[number].meters }}</th>
+      <th>{{ courseData.holes[1].teeBoxes[number].meters }}</th>
+    </tr>
+    <tr *ngFor="let number of [1, 2, 3, 4]">
+      <!--{{playerCountArr}} -->
+      <td>
+        <input placeholder="Player {{ number }}" id="Player{{ number }}" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score1" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score2" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score3" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score4" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score5" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score6" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score7" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score8" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score9" />
+      </td>
+      <td id="{{ number }}outTotal">out</td>
+      <td>
+        <input type="number" id="{{ number }}Score10" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score11" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score12" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score13" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score14" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score15" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score16" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score17" />
+      </td>
+      <td>
+        <input type="number" id="{{ number }}Score18" />
+      </td>
+      <td id="{{ number }}inTotal">in</td>
+      <td id="{{ number }}total">total</td>
+      <!-- <td>{{ 1Score1.value }}</td> -->
+    </tr>
+    <tr>
+      <th>PAR</th>
+      <th>{{ courseData.holes[0].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[1].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[2].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[3].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[4].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[5].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[6].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[7].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[8].teeBoxes[0].par }}</th>
+      <th>
+        {{
+          courseData.holes[0].teeBoxes[0].par +
+            courseData.holes[1].teeBoxes[0].par +
+            courseData.holes[2].teeBoxes[0].par +
+            courseData.holes[3].teeBoxes[0].par +
+            courseData.holes[4].teeBoxes[0].par +
+            courseData.holes[5].teeBoxes[0].par +
+            courseData.holes[6].teeBoxes[0].par +
+            courseData.holes[7].teeBoxes[0].par
+        }}
+      </th>
+      <th>{{ courseData.holes[9].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[10].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[11].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[12].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[13].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[14].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[15].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[16].teeBoxes[0].par }}</th>
+      <th>{{ courseData.holes[17].teeBoxes[0].par }}</th>
+      <th>
+        {{
+          courseData.holes[8].teeBoxes[0].par +
+            courseData.holes[9].teeBoxes[0].par +
+            courseData.holes[10].teeBoxes[0].par +
+            courseData.holes[11].teeBoxes[0].par +
+            courseData.holes[12].teeBoxes[0].par +
+            courseData.holes[13].teeBoxes[0].par +
+            courseData.holes[14].teeBoxes[0].par +
+            courseData.holes[15].teeBoxes[0].par
+        }}
+      </th>
+      <th>
+        {{
+          courseData.holes[0].teeBoxes[0].par +
+            courseData.holes[1].teeBoxes[0].par +
+            courseData.holes[2].teeBoxes[0].par +
+            courseData.holes[3].teeBoxes[0].par +
+            courseData.holes[4].teeBoxes[0].par +
+            courseData.holes[5].teeBoxes[0].par +
+            courseData.holes[6].teeBoxes[0].par +
+            courseData.holes[7].teeBoxes[0].par +
+            courseData.holes[8].teeBoxes[0].par +
+            courseData.holes[9].teeBoxes[0].par +
+            courseData.holes[10].teeBoxes[0].par +
+            courseData.holes[11].teeBoxes[0].par +
+            courseData.holes[12].teeBoxes[0].par +
+            courseData.holes[13].teeBoxes[0].par +
+            courseData.holes[14].teeBoxes[0].par +
+            courseData.holes[15].teeBoxes[0].par
+        }}
+      </th>
+    </tr>
+    <tr *ngFor="let number of [5, 6, 7, 8]">
+      <!--{{playerCountArr}} -->
       <td>
         <input placeholder="Player {{ number }}" id="Player{{ number }}" />
       </td>
