@@ -1,0 +1,35 @@
+table {
+  th,
+  td {
+    text-align: center;
+    padding: 15px;
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  #HoleRow,
+  #ParRow {
+    background-color: green;
+    color: white;
+  }
+  .PlayerRow {
+    td,
+    th {
+      text-align: center;
+      padding: 0;
+      margin: 0;
+      width: 1em;
+      input {
+        padding-top: 10%;
+        padding-bottom: 10%;
+        border: none;
+        outline: none;
+        text-align: center;
+      }
+      ::placeholder {
+        text-align: center;
+      }
+    }
+  }
+  border: 1px solid black;
+  border-collapse: collapse;
+}
