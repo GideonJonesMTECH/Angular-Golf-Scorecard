@@ -25,10 +25,14 @@ export class CourseSelectComponent implements OnInit {
     this.coursesInfo = data.courses;
   }
 
-  goToScorecard(selectedCourse: number): void {
-    this.router.navigate([
-      './score-card',
-      { id: this.coursesInfo[selectedCourse].id + '' },
-    ]);
+  redirectToScoreCard() {
+    console.log();
+  }
+
+  onCourseSelect() {
+    console.log('Course Selected');
+    let courseButton = document.getElementById('courseSelectionButton');
+    console.log(courseButton);
+    courseButton.removeAttribute('disabled');
   }
 }

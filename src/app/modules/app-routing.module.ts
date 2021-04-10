@@ -4,13 +4,16 @@ import { CourseSelectComponent } from '../components/course-select/course-select
 import { ScoreCardTableComponent } from '../components/score-card-table/score-card-table.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'course-select', pathMatch: 'full'},
-  {path: 'course-select', component: CourseSelectComponent},
-  {path: 'score-card', component: ScoreCardTableComponent}
+  { path: '', redirectTo: 'course-select', pathMatch: 'full' },
+  { path: 'course-select', component: CourseSelectComponent },
+  {
+    path: 'score-card/:courseId/:playerCount',
+    component: ScoreCardTableComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

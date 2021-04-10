@@ -1,12 +1,28 @@
 <div>
-  <form name="courseForm">
+  <form
+    name="courseForm"
+    action="score-card"
+    method="GET"
+    (change)="onCourseSelect()"
+  >
     <div *ngFor="let number of [0, 1, 2]">
       <app-course-selection
         [(info)]="coursesInfo[number]"
       ></app-course-selection>
     </div>
     <label for="playerCount">Player Count:</label>
-    <input type="text" name="playerCount" id="playerCount" />
-    <input type="submit" />
+    <select id="playerCount" name="playerCount">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+    <input type="submit" disabled id="courseSelectionButton" />
   </form>
 </div>
+
+<!-- courseForm and playerCount are returned from the form-->

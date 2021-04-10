@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CourseSelectComponent } from './components/course-select/course-select.component';
 import { ScoreCardTableComponent } from './components/score-card-table/score-card-table.component';
+
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 
 import { MaterialModule } from './modules/material.module';
@@ -26,7 +27,6 @@ import { CourseSelectionComponent } from './components/course-selection/course-s
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-
     MaterialModule,
   ],
   exports: [MaterialModule],

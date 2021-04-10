@@ -32,68 +32,194 @@
     <th>In Total</th>
     <th>Total</th>
   </tr>
-
   <tr *ngFor="let number of frontPlayers" class="PlayerRow">
     <td>
-      <input placeholder="Player {{ number }}" id="Player{{ number }}" />
+      <input placeholder="Player {{ number }}" id="Player{{ number }}Name" />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score1" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score1"
+          name="{{ number }}Score1"
+          [(ngModel)]="OneScore1"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score2" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score2"
+          name="{{ number }}Score2"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score3" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score3"
+          name="{{ number }}Score3"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score4" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score4"
+          name="{{ number }}Score4"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score5" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score5"
+          name="{{ number }}Score5"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score6" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score6"
+          name="{{ number }}Score6"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score7" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score7"
+          name="{{ number }}Score7"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score8" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score8"
+          name="{{ number }}Score8"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score9" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score9"
+          name="{{ number }}Score9"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
-    <td id="{{ number }}outTotal">out</td>
+    <td id="{{ number }}outTotal">0</td>
     <td>
-      <input type="number" id="{{ number }}Score10" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score11" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score12" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score13" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score14" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score15" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score16" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score10"
+          name="{{ number }}Score10"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score17" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score11"
+          name="{{ number }}Score11"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
     <td>
-      <input type="number" id="{{ number }}Score18" />
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score12"
+          name="{{ number }}Score12"
+          (change)="updateScore()"
+        />
+      </form>
     </td>
-    <td id="{{ number }}inTotal">in</td>
-    <td id="{{ number }}total">total</td>
+    <td>
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score13"
+          name="{{ number }}Score13"
+          (change)="updateScore()"
+        />
+      </form>
+    </td>
+    <td>
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score14"
+          name="{{ number }}Score14"
+          (change)="updateScore()"
+        />
+      </form>
+    </td>
+    <td>
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score15"
+          name="{{ number }}Score15"
+          (change)="updateScore()"
+        />
+      </form>
+    </td>
+    <td>
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score16"
+          name="{{ number }}Score16"
+          (change)="updateScore()"
+        />
+      </form>
+    </td>
+    <td>
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score17"
+          name="{{ number }}Score17"
+          (change)="updateScore()"
+        />
+      </form>
+    </td>
+    <td>
+      <form onkeypress="return event.keyCode != 13">
+        <input
+          type="number"
+          id="{{ number }}Score18"
+          name="{{ number }}Score18"
+          (change)="updateScore()"
+        />
+      </form>
+    </td>
+    <td id="{{ number }}inTotal">0</td>
+    <td id="{{ number }}total">0</td>
   </tr>
   <tr id="ParRow">
     <th>PAR</th>
@@ -161,67 +287,161 @@
     </th>
   </tr>
   <tr *ngFor="let number of backPlayers" class="PlayerRow">
-    <!--{{playerCountArr}} -->
     <td>
       <input placeholder="Player {{ number }}" id="Player{{ number }}" />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score1" />
+      <input
+        type="number"
+        id="{{ number }}Score1"
+        name="{{ number }}Score1"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score2" />
+      <input
+        type="number"
+        id="{{ number }}Score2"
+        name="{{ number }}Score2"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score3" />
+      <input
+        type="number"
+        id="{{ number }}Score3"
+        name="{{ number }}Score3"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score4" />
+      <input
+        type="number"
+        id="{{ number }}Score4"
+        name="{{ number }}Score4"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score5" />
+      <input
+        type="number"
+        id="{{ number }}Score5"
+        name="{{ number }}Score5"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score6" />
+      <input
+        type="number"
+        id="{{ number }}Score6"
+        name="{{ number }}Score6"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score7" />
+      <input
+        type="number"
+        id="{{ number }}Score7"
+        name="{{ number }}Score7"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score8" />
+      <input
+        type="number"
+        id="{{ number }}Score8"
+        name="{{ number }}Score8"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score9" />
+      <input
+        type="number"
+        id="{{ number }}Score9"
+        name="{{ number }}Score9"
+        (change)="updateScore()"
+      />
     </td>
-    <td id="{{ number }}outTotal">out</td>
+    <td id="{{ number }}outTotal">0</td>
     <td>
-      <input type="number" id="{{ number }}Score10" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score11" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score12" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score13" />
-    </td>
-    <td>
-      <input type="number" id="{{ number }}Score14" />
+      <input
+        type="number"
+        id="{{ number }}Score10"
+        name="{{ number }}Score10"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score15" />
+      <input
+        type="number"
+        id="{{ number }}Score11"
+        name="{{ number }}Score11"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score16" />
+      <input
+        type="number"
+        id="{{ number }}Score12"
+        name="{{ number }}Score12"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score17" />
+      <input
+        type="number"
+        id="{{ number }}Score13"
+        name="{{ number }}Score13"
+        (change)="updateScore()"
+      />
     </td>
     <td>
-      <input type="number" id="{{ number }}Score18" />
+      <input
+        type="number"
+        id="{{ number }}Score14"
+        name="{{ number }}Score14"
+        (change)="updateScore()"
+      />
     </td>
-    <td id="{{ number }}inTotal">in</td>
-    <td id="{{ number }}total">total</td>
+    <td>
+      <input
+        type="number"
+        id="{{ number }}Score15"
+        name="{{ number }}Score15"
+        (change)="updateScore()"
+      />
+    </td>
+    <td>
+      <input
+        type="number"
+        id="{{ number }}Score16"
+        name="{{ number }}Score16"
+        (change)="updateScore()"
+      />
+    </td>
+    <td>
+      <input
+        type="number"
+        id="{{ number }}Score17"
+        name="{{ number }}Score17"
+        (change)="updateScore()"
+      />
+    </td>
+    <td>
+      <input
+        type="number"
+        id="{{ number }}Score18"
+        name="{{ number }}Score18"
+        (change)="updateScore()"
+      />
+    </td>
+    <td id="{{ number }}inTotal">0</td>
+    <td id="{{ number }}total">0</td>
     <!-- <td>{{ 1Score1.value }}</td> -->
   </tr>
+  <tr id="TeeRow">
+    <th colspan="100%"></th>
+  </tr>
 </table>
+
+<input (change)="updateScore()" />
