@@ -10,6 +10,7 @@ import { ScoreCardTableComponent } from './components/score-card-table/score-car
 import { TopNavbarComponent } from './components/top-navbar/top-navbar.component';
 
 import { MaterialModule } from './modules/material.module';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CourseSelectionComponent } from './components/course-selection/course-selection.component';
@@ -28,6 +29,8 @@ import { CourseSelectionComponent } from './components/course-selection/course-s
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [MaterialModule],
   providers: [],

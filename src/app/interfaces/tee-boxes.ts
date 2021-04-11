@@ -5,6 +5,7 @@ export interface TeeBoxes {
   teeType: String;
   teeColorTypeId: Number;
   teeColorType: String;
+  textColor: String;
   lat: Number;
   lng: Number;
   par: Number;

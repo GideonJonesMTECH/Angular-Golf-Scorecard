@@ -1,447 +1,150 @@
-<table *ngIf="courseData" id="courseTable">
-  <tr>
+<table *ngIf="courseData">
+  <tr id="InfoRow">
     <th colspan="100%">
-      {{ courseData.name }}, {{ courseData.addr1 }},
-      <a href="{{ courseData.website }}" target="_blank">{{
-        courseData.website
-      }}</a>
+      {{ courseData.name }} -- {{ courseData.addr1 }}, {{ courseData.city }},
+      {{ courseData.stateOrProvince }} -- {{ courseData.phone }} --
+      <a href="{{ courseData.website }}" target="_blank">
+        {{ courseData.website }}</a
+      >
     </th>
   </tr>
   <tr id="HoleRow">
-    <th>HOLES</th>
-    <th>Hole 1</th>
-    <th>Hole 2</th>
-    <th>Hole 3</th>
-    <th>Hole 4</th>
-    <th>Hole 5</th>
-    <th>Hole 6</th>
-    <th>Hole 7</th>
-    <th>Hole 8</th>
-    <th>Hole 9</th>
-    <th>Out Total</th>
-    <td rowspan="100%" style="padding: 1em"></td>
-    <th>Hole 10</th>
-    <th>Hole 11</th>
-    <th>Hole 12</th>
-    <th>Hole 13</th>
-    <th>Hole 14</th>
-    <th>Hole 15</th>
-    <th>Hole 16</th>
-    <th>Hole 17</th>
-    <th>Hole 18</th>
-    <th>In Total</th>
+    <th>PLAYERS</th>
+    <th *ngFor="let holeNumb of frontHoles">Hole {{ holeNumb }}</th>
+    <th>Out</th>
+    <th *ngFor="let holeNumb of backHoles">Hole {{ holeNumb }}</th>
+    <th>In</th>
     <th>Total</th>
   </tr>
-  <tr *ngFor="let number of frontPlayers" class="PlayerRow">
-    <td>
-      <input placeholder="Player {{ number }}" id="Player{{ number }}Name" />
+  <tr
+    class="TeeBoxRow"
+    *ngFor="let teeBoxNumb of teeBoxes"
+    style="background-color: {{
+      courseData.holes[0].teeBoxes[teeBoxNumb].teeHexColor
+    }}"
+  >
+    <th style="text-transform: uppercase">
+      {{ courseData.holes[0].teeBoxes[teeBoxNumb].teeColorType }}
+    </th>
+    <td *ngFor="let holeNumb of frontHoles">
+      {{ courseData.holes[holeNumb - 1].teeBoxes[teeBoxNumb].yards }}
     </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score1"
-          name="{{ number }}Score1"
-          [(ngModel)]="OneScore1"
-          (change)="updateScore()"
-        />
-      </form>
+    <th id="_{{ teeBoxNumb }}TeeOut">
+      {{
+        courseData.holes[0].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[1].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[2].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[3].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[4].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[5].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[6].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[7].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[8].teeBoxes[teeBoxNumb].yards
+      }}
+    </th>
+    <td *ngFor="let holeNumb of backHoles">
+      {{ courseData.holes[holeNumb - 1].teeBoxes[teeBoxNumb].yards }}
     </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score2"
-          name="{{ number }}Score2"
-          (change)="updateScore()"
-        />
-      </form>
+    <th id="_{{ teeBoxNumb }}TeeIn">
+      {{
+        courseData.holes[9].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[10].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[11].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[12].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[13].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[14].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[15].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[16].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[17].teeBoxes[teeBoxNumb].yards
+      }}
+    </th>
+    <th id="_{{ teeBoxNumb }}TeeTot">
+      {{
+        courseData.holes[0].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[1].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[2].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[3].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[4].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[5].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[6].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[7].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[8].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[9].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[10].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[11].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[12].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[13].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[14].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[15].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[16].teeBoxes[teeBoxNumb].yards +
+          courseData.holes[17].teeBoxes[teeBoxNumb].yards
+      }}
+    </th>
+  </tr>
+  <tr class="PlayerRow" *ngFor="let playerNumb of frontPlayers">
+    <th>
+      <input
+        placeholder="Player {{ playerNumb }}"
+        id="Player{{ playerNumb }}Name"
+      />
+    </th>
+    <td *ngFor="let holeNumb of frontHoles">
+      <input
+        type="number"
+        (change)="updateScore([playerNumb])"
+        placeholder="Hole {{ holeNumb }} Score"
+        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
+      />
     </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score3"
-          name="{{ number }}Score3"
-          (change)="updateScore()"
-        />
-      </form>
+    <th id="_{{ playerNumb }}Out">0</th>
+    <td *ngFor="let holeNumb of backHoles">
+      <input
+        type="number"
+        (change)="updateScore([playerNumb])"
+        placeholder="Hole {{ holeNumb }} Score"
+        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
+      />
     </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score4"
-          name="{{ number }}Score4"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score5"
-          name="{{ number }}Score5"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score6"
-          name="{{ number }}Score6"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score7"
-          name="{{ number }}Score7"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score8"
-          name="{{ number }}Score8"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score9"
-          name="{{ number }}Score9"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td id="{{ number }}outTotal">0</td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score10"
-          name="{{ number }}Score10"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score11"
-          name="{{ number }}Score11"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score12"
-          name="{{ number }}Score12"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score13"
-          name="{{ number }}Score13"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score14"
-          name="{{ number }}Score14"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score15"
-          name="{{ number }}Score15"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score16"
-          name="{{ number }}Score16"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score17"
-          name="{{ number }}Score17"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td>
-      <form onkeypress="return event.keyCode != 13">
-        <input
-          type="number"
-          id="{{ number }}Score18"
-          name="{{ number }}Score18"
-          (change)="updateScore()"
-        />
-      </form>
-    </td>
-    <td id="{{ number }}inTotal">0</td>
-    <td id="{{ number }}total">0</td>
+    <th id="_{{ playerNumb }}In">0</th>
+    <th id="_{{ playerNumb }}Tot">0</th>
   </tr>
   <tr id="ParRow">
     <th>PAR</th>
-    <th>{{ courseData.holes[0].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[1].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[2].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[3].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[4].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[5].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[6].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[7].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[8].teeBoxes[0].par }}</th>
-    <th>
-      {{
-        courseData.holes[0].teeBoxes[0].par +
-          courseData.holes[1].teeBoxes[0].par +
-          courseData.holes[2].teeBoxes[0].par +
-          courseData.holes[3].teeBoxes[0].par +
-          courseData.holes[4].teeBoxes[0].par +
-          courseData.holes[5].teeBoxes[0].par +
-          courseData.holes[6].teeBoxes[0].par +
-          courseData.holes[7].teeBoxes[0].par
-      }}
-    </th>
-    <th>{{ courseData.holes[9].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[10].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[11].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[12].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[13].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[14].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[15].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[16].teeBoxes[0].par }}</th>
-    <th>{{ courseData.holes[17].teeBoxes[0].par }}</th>
-    <th>
-      {{
-        courseData.holes[8].teeBoxes[0].par +
-          courseData.holes[9].teeBoxes[0].par +
-          courseData.holes[10].teeBoxes[0].par +
-          courseData.holes[11].teeBoxes[0].par +
-          courseData.holes[12].teeBoxes[0].par +
-          courseData.holes[13].teeBoxes[0].par +
-          courseData.holes[14].teeBoxes[0].par +
-          courseData.holes[15].teeBoxes[0].par
-      }}
-    </th>
-    <th>
-      {{
-        courseData.holes[0].teeBoxes[0].par +
-          courseData.holes[1].teeBoxes[0].par +
-          courseData.holes[2].teeBoxes[0].par +
-          courseData.holes[3].teeBoxes[0].par +
-          courseData.holes[4].teeBoxes[0].par +
-          courseData.holes[5].teeBoxes[0].par +
-          courseData.holes[6].teeBoxes[0].par +
-          courseData.holes[7].teeBoxes[0].par +
-          courseData.holes[8].teeBoxes[0].par +
-          courseData.holes[9].teeBoxes[0].par +
-          courseData.holes[10].teeBoxes[0].par +
-          courseData.holes[11].teeBoxes[0].par +
-          courseData.holes[12].teeBoxes[0].par +
-          courseData.holes[13].teeBoxes[0].par +
-          courseData.holes[14].teeBoxes[0].par +
-          courseData.holes[15].teeBoxes[0].par
-      }}
-    </th>
+    <td *ngFor="let holeNumb of frontHoles">
+      {{ courseData.holes[holeNumb - 1].teeBoxes[0].par }}
+    </td>
+    <th id="parOut">{{ parOut }}</th>
+    <td *ngFor="let holeNumb of backHoles">
+      {{ courseData.holes[holeNumb - 1].teeBoxes[0].par }}
+    </td>
+    <th id="parIn">{{ parIn }}</th>
+    <th id="parTot">{{ parIn + parOut }}</th>
   </tr>
-  <tr *ngFor="let number of backPlayers" class="PlayerRow">
-    <td>
-      <input placeholder="Player {{ number }}" id="Player{{ number }}" />
-    </td>
-    <td>
+  <tr class="PlayerRow" *ngFor="let playerNumb of backPlayers">
+    <th>
+      <input
+        placeholder="Player {{ playerNumb }}"
+        id="Player{{ playerNumb }}Name"
+      />
+    </th>
+    <td *ngFor="let holeNumb of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
       <input
         type="number"
-        id="{{ number }}Score1"
-        name="{{ number }}Score1"
-        (change)="updateScore()"
+        (change)="updateScore([playerNumb])"
+        placeholder="Hole {{ holeNumb }} Score"
+        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
       />
     </td>
-    <td>
+    <th id="_{{ playerNumb }}Out">0</th>
+    <td *ngFor="let holeNumb of [10, 11, 12, 13, 14, 15, 16, 17, 18]">
       <input
         type="number"
-        id="{{ number }}Score2"
-        name="{{ number }}Score2"
-        (change)="updateScore()"
+        (change)="updateScore([playerNumb])"
+        placeholder="Hole {{ holeNumb }} Score"
+        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
       />
     </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score3"
-        name="{{ number }}Score3"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score4"
-        name="{{ number }}Score4"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score5"
-        name="{{ number }}Score5"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score6"
-        name="{{ number }}Score6"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score7"
-        name="{{ number }}Score7"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score8"
-        name="{{ number }}Score8"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score9"
-        name="{{ number }}Score9"
-        (change)="updateScore()"
-      />
-    </td>
-    <td id="{{ number }}outTotal">0</td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score10"
-        name="{{ number }}Score10"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score11"
-        name="{{ number }}Score11"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score12"
-        name="{{ number }}Score12"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score13"
-        name="{{ number }}Score13"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score14"
-        name="{{ number }}Score14"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score15"
-        name="{{ number }}Score15"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score16"
-        name="{{ number }}Score16"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score17"
-        name="{{ number }}Score17"
-        (change)="updateScore()"
-      />
-    </td>
-    <td>
-      <input
-        type="number"
-        id="{{ number }}Score18"
-        name="{{ number }}Score18"
-        (change)="updateScore()"
-      />
-    </td>
-    <td id="{{ number }}inTotal">0</td>
-    <td id="{{ number }}total">0</td>
-    <!-- <td>{{ 1Score1.value }}</td> -->
-  </tr>
-  <tr id="TeeRow">
-    <th colspan="100%"></th>
+    <th id="_{{ playerNumb }}In">0</th>
+    <th id="_{{ playerNumb }}Tot">0</th>
   </tr>
 </table>
-
-<input (change)="updateScore()" />

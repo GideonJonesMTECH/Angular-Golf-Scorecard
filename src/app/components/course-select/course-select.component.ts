@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoursesList } from 'src/app/interfaces/courses-list';
 import { GetAPIService } from 'src/app/services/get-api.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-course-select',
@@ -12,6 +13,8 @@ export class CourseSelectComponent implements OnInit {
   constructor(private router: Router, private api: GetAPIService) {}
 
   coursesInfo;
+  selectedCourse = false;
+  selectedPlayers = false;
 
   ngOnInit(): void {
     this.api.apiCall().subscribe((data) => {
@@ -20,19 +23,29 @@ export class CourseSelectComponent implements OnInit {
     });
   }
 
+  goToScoreCard(form: NgForm): void {
+    console.log(form.value);
+  }
+
   setup(data: CoursesList): void {
     console.warn(data.courses);
     this.coursesInfo = data.courses;
   }
 
-  redirectToScoreCard() {
-    console.log();
-  }
-
   onCourseSelect() {
+    this.selectedCourse = true;
     console.log('Course Selected');
-    let courseButton = document.getElementById('courseSelectionButton');
-    console.log(courseButton);
-    courseButton.removeAttribute('disabled');
+    if (this.selectedCourse && this.selectedPlayers) {
+      let courseButton = document.getElementById('courseSelectionButton');
+      courseButton.removeAttribute('disabled');
+    }
+  }
+  onPlayerSelect() {
+    this.selectedPlayers = true;
+    console.log('Player Selected');
+    if (this.selectedCourse && this.selectedPlayers) {
+      let courseButton = document.getElementById('courseSelectionButton');
+      courseButton.removeAttribute('disabled');
+    }
   }
 }

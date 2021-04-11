@@ -1,17 +1,30 @@
-<div>
+<div *ngIf="coursesInfo">
   <form
     name="courseForm"
-    action="score-card"
-    method="GET"
-    (change)="onCourseSelect()"
+    (ngSubmit)="goToScoreCard(courseForm)"
+    #courseForm="ngForm"
   >
-    <div *ngFor="let number of [0, 1, 2]">
-      <app-course-selection
-        [(info)]="coursesInfo[number]"
-      ></app-course-selection>
+    <div *ngFor="let number of [0, 1, 2]" (change)="onCourseSelect()">
+      <input
+        name="courseForm"
+        type="radio"
+        id="{{ coursesInfo[number].name }}"
+        value="{{ coursesInfo[number].id }}"
+        ngModel
+      />
+      <label for="{{ coursesInfo[number].name }}">
+        <app-course-selection
+          [(info)]="coursesInfo[number]"
+        ></app-course-selection>
+      </label>
     </div>
     <label for="playerCount">Player Count:</label>
-    <select id="playerCount" name="playerCount">
+    <select
+      id="playerCount"
+      name="playerCount"
+      (change)="onPlayerSelect()"
+      ngModel
+    >
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
@@ -21,7 +34,7 @@
       <option value="7">7</option>
       <option value="8">8</option>
     </select>
-    <input type="submit" disabled id="courseSelectionButton" />
+    <button type="submit" disabled id="courseSelectionButton">Submit</button>
   </form>
 </div>
 
