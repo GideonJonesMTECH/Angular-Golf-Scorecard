@@ -23,8 +23,11 @@ export class CourseSelectComponent implements OnInit {
     });
   }
 
-  goToScoreCard(form: NgForm): void {
-    console.log(form.value);
+  goToScoreCard(data): void {
+    console.log(data);
+    this.router.navigateByUrl(
+      `score-card/${data.courseForm}/${data.playerCount}`
+    );
   }
 
   setup(data: CoursesList): void {

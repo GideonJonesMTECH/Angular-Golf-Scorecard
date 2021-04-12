@@ -54,6 +54,8 @@ export class ScoreCardTableComponent implements OnInit {
       }
     }
     //#endregion
+
+    //#region TeeBox Setup
     let teeBoxData = this.courseData.holes[0].teeBoxes;
     console.log(teeBoxData);
     for (let i = 0; i < teeBoxData.length; i++) {
@@ -63,6 +65,7 @@ export class ScoreCardTableComponent implements OnInit {
     }
     console.log(this.teeBoxes);
     this.setEquals(this.courseData);
+    //#endregion
   }
 
   updateScore(playerNumb): void {
@@ -99,22 +102,20 @@ export class ScoreCardTableComponent implements OnInit {
   }
 
   setEquals(data): void {
-    //#region Par
-    for (let i = 1; i < this.frontHoles[this.frontHoles.length - 1]; i++) {
-      this.parOut += data.holes[i - 1].teeBoxes[0].par;
+    for (let i = 0; i < this.frontHoles[this.frontHoles.length - 1]; i++) {
+      this.parOut += data.holes[i].teeBoxes[0].par;
     }
     for (
-      let i = this.backHoles[0];
+      let i = this.backHoles[0] - 1;
       i < this.backHoles[this.backHoles.length - 1];
       i++
     ) {
-      this.parIn += data.holes[i - 1].teeBoxes[0].par;
+      this.parIn += data.holes[i].teeBoxes[0].par;
     }
     console.log(
       `Par Out: ${this.parOut} | Par In: ${this.parIn} | Par Total: ${
         this.parIn + this.parOut
       }`
     );
-    //#endregion
   }
 }

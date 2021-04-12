@@ -1,21 +1,20 @@
 <div *ngIf="coursesInfo">
   <form
     name="courseForm"
-    (ngSubmit)="goToScoreCard(courseForm)"
+    (ngSubmit)="goToScoreCard(courseForm.value)"
     #courseForm="ngForm"
   >
     <div *ngFor="let number of [0, 1, 2]" (change)="onCourseSelect()">
-      <input
-        name="courseForm"
-        type="radio"
-        id="{{ coursesInfo[number].name }}"
-        value="{{ coursesInfo[number].id }}"
-        ngModel
-      />
       <label for="{{ coursesInfo[number].name }}">
-        <app-course-selection
-          [(info)]="coursesInfo[number]"
-        ></app-course-selection>
+        <app-course-selection [(info)]="coursesInfo[number]">
+        </app-course-selection>
+        <input
+          name="courseForm"
+          type="radio"
+          id="{{ coursesInfo[number].id }}"
+          value="{{ coursesInfo[number].id }}"
+          ngModel
+        />
       </label>
     </div>
     <label for="playerCount">Player Count:</label>
