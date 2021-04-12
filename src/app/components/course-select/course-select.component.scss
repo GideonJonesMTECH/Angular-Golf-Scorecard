@@ -7,4 +7,10 @@ form {
     display: flex;
     flex-direction: row;
   }
+  select {
+    width: 4em;
+  }
+  button {
+    width: 6em;
+  }
 }

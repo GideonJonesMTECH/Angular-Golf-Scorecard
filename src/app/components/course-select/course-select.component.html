@@ -17,22 +17,26 @@
         />
       </label>
     </div>
-    <label for="playerCount">Player Count:</label>
-    <select
-      id="playerCount"
-      name="playerCount"
-      (change)="onPlayerSelect()"
-      ngModel
-    >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-    </select>
-    <button type="submit" disabled id="courseSelectionButton">Submit</button>
+    <div>
+      <label for="playerCount">Player Count:</label>
+      <select
+        id="playerCount"
+        name="playerCount"
+        (change)="onPlayerSelect()"
+        ngModel
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit" disabled id="courseSelectionButton">Submit</button>
+    </div>
   </form>
 </div>

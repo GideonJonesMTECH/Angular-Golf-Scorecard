@@ -241,7 +241,7 @@ export class ScoreCardTableComponent implements OnInit {
     } else if (Score == 0) {
       document.getElementById(
         'ResponseText'
-      ).innerText += `${playerName} got a score of ${Score}. That's the par!.\n`;
+      ).innerText += `${playerName} got a score of ${Score}. That's the par!\n`;
     }
   }
 }

@@ -1,8 +1,13 @@
 <table *ngIf="courseData">
-  <tr id="InfoRow">
+  <tr class="InfoRow">
     <th colspan="100%">
       {{ courseData.name }} -- {{ courseData.addr1 }}, {{ courseData.city }},
-      {{ courseData.stateOrProvince }} -- {{ courseData.phone }} --
+      {{ courseData.stateOrProvince }}
+    </th>
+  </tr>
+  <tr class="InfoRow">
+    <th colspan="100%">
+      {{ courseData.phone }} --
       <a href="{{ courseData.website }}" target="_blank">
         {{ courseData.website }}</a
       >
