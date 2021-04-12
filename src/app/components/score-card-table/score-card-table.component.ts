@@ -72,6 +72,24 @@ export class ScoreCardTableComponent implements OnInit {
     console.log(`Update Score triggered: Player ${playerNumb}`);
     let outTot = 0;
     let inTot = 0;
+    let Filled1 = false;
+    let Filled2 = false;
+    let Filled3 = false;
+    let Filled4 = false;
+    let Filled5 = false;
+    let Filled6 = false;
+    let Filled7 = false;
+    let Filled8 = false;
+    let Filled9 = false;
+    let Filled10 = false;
+    let Filled11 = false;
+    let Filled12 = false;
+    let Filled13 = false;
+    let Filled14 = false;
+    let Filled15 = false;
+    let Filled16 = false;
+    let Filled17 = false;
+    let Filled18 = false;
     for (let i = 1; i < this.courseData.holes.length + 1; i++) {
       let scoreElem = document.getElementById(
         `_${playerNumb}Hole${i}Score`
@@ -83,6 +101,66 @@ export class ScoreCardTableComponent implements OnInit {
         outTot += score;
       } else {
         inTot += score;
+      }
+      if (score != 0) {
+        switch (i) {
+          case 1:
+            Filled1 = true;
+            break;
+          case 2:
+            Filled2 = true;
+            break;
+          case 3:
+            Filled3 = true;
+            break;
+          case 4:
+            Filled4 = true;
+            break;
+          case 5:
+            Filled5 = true;
+            break;
+          case 6:
+            Filled6 = true;
+            break;
+          case 7:
+            Filled7 = true;
+            break;
+          case 8:
+            Filled8 = true;
+            break;
+          case 9:
+            Filled9 = true;
+            break;
+          case 10:
+            Filled10 = true;
+            break;
+          case 11:
+            Filled11 = true;
+            break;
+          case 12:
+            Filled12 = true;
+            break;
+          case 13:
+            Filled13 = true;
+            break;
+          case 14:
+            Filled14 = true;
+            break;
+          case 15:
+            Filled15 = true;
+            break;
+          case 16:
+            Filled16 = true;
+            break;
+          case 17:
+            Filled17 = true;
+            break;
+          case 18:
+            Filled18 = true;
+            break;
+          default:
+            break;
+        }
       }
     }
     document.getElementById(
@@ -99,6 +177,29 @@ export class ScoreCardTableComponent implements OnInit {
       `_${playerNumb}Tot`
     ).innerText = ((((inTot as number) +
       outTot) as number) as unknown) as string;
+
+    if (
+      Filled1 &&
+      Filled2 &&
+      Filled3 &&
+      Filled4 &&
+      Filled5 &&
+      Filled6 &&
+      Filled7 &&
+      Filled8 &&
+      Filled9 &&
+      Filled10 &&
+      Filled11 &&
+      Filled12 &&
+      Filled13 &&
+      Filled14 &&
+      Filled15 &&
+      Filled16 &&
+      Filled17 &&
+      Filled18
+    ) {
+      this.getResponse(playerNumb);
+    }
   }
 
   setEquals(data): void {
@@ -117,5 +218,30 @@ export class ScoreCardTableComponent implements OnInit {
         this.parIn + this.parOut
       }`
     );
+  }
+
+  getResponse(playerNumb): void {
+    let playerNameEl = document.getElementById(
+      `Player${playerNumb}Name`
+    ) as HTMLInputElement;
+    let playerName = playerNameEl.value as string;
+    let PlayerTotal = (document.getElementById(`_${playerNumb}Tot`)
+      .innerText as unknown) as number;
+    let ParTotal = (document.getElementById('parTot')
+      .innerText as unknown) as number;
+    let Score = PlayerTotal - ParTotal;
+    if (Score > 0) {
+      document.getElementById(
+        'ResponseText'
+      ).innerText += `${playerName} got a score of ${Score}. That's worse than the par.\n`;
+    } else if (Score < 0) {
+      document.getElementById(
+        'ResponseText'
+      ).innerText += `${playerName} got a score of ${Score}. That's better than the par!\n`;
+    } else if (Score == 0) {
+      document.getElementById(
+        'ResponseText'
+      ).innerText += `${playerName} got a score of ${Score}. That's the par!.\n`;
+    }
   }
 }
