@@ -7,16 +7,9 @@ table {
     border-collapse: collapse;
   }
   #HoleRow,
-  #ParRow,
-  #TeeRow {
+  #ParRow {
     background-color: green;
     color: white;
-  }
-  #TeeRow {
-    border: transparent;
-    th {
-      border: transparent;
-    }
   }
   .PlayerRow {
     td,

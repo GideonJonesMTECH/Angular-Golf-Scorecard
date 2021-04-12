@@ -1,156 +1,160 @@
 <table *ngIf="courseData">
-  <tr class="InfoRow">
-    <th colspan="100%">
-      {{ courseData.name }} -- {{ courseData.addr1 }}, {{ courseData.city }},
-      {{ courseData.stateOrProvince }}
-    </th>
-  </tr>
-  <tr class="InfoRow">
-    <th colspan="100%">
-      {{ courseData.phone }} --
-      <a href="{{ courseData.website }}" target="_blank">
-        {{ courseData.website }}</a
-      >
-    </th>
-  </tr>
-  <tr id="HoleRow">
-    <th>PLAYERS</th>
-    <th *ngFor="let holeNumb of frontHoles">Hole {{ holeNumb }}</th>
-    <th>Out</th>
-    <th *ngFor="let holeNumb of backHoles">Hole {{ holeNumb }}</th>
-    <th>In</th>
-    <th>Total</th>
-  </tr>
-  <tr
-    class="TeeBoxRow"
-    *ngFor="let teeBoxNumb of teeBoxes"
-    style="background-color: {{
-      courseData.holes[0].teeBoxes[teeBoxNumb].teeHexColor
-    }}"
-  >
-    <th style="text-transform: uppercase">
-      {{ courseData.holes[0].teeBoxes[teeBoxNumb].teeColorType }}
-    </th>
-    <td *ngFor="let holeNumb of frontHoles">
-      {{ courseData.holes[holeNumb - 1].teeBoxes[teeBoxNumb].yards }}
-    </td>
-    <th id="_{{ teeBoxNumb }}TeeOut">
-      {{
-        courseData.holes[0].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[1].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[2].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[3].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[4].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[5].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[6].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[7].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[8].teeBoxes[teeBoxNumb].yards
-      }}
-    </th>
-    <td *ngFor="let holeNumb of backHoles">
-      {{ courseData.holes[holeNumb - 1].teeBoxes[teeBoxNumb].yards }}
-    </td>
-    <th id="_{{ teeBoxNumb }}TeeIn">
-      {{
-        courseData.holes[9].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[10].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[11].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[12].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[13].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[14].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[15].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[16].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[17].teeBoxes[teeBoxNumb].yards
-      }}
-    </th>
-    <th id="_{{ teeBoxNumb }}TeeTot">
-      {{
-        courseData.holes[0].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[1].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[2].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[3].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[4].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[5].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[6].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[7].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[8].teeBoxes[teeBoxNumb].yards +
+  <thead>
+    <tr class="InfoRow">
+      <th colspan="100%">
+        {{ courseData.name }} -- {{ courseData.addr1 }}, {{ courseData.city }},
+        {{ courseData.stateOrProvince }}
+      </th>
+    </tr>
+    <tr class="InfoRow">
+      <th colspan="100%">
+        {{ courseData.phone }} --
+        <a href="{{ courseData.website }}" target="_blank">
+          {{ courseData.website }}</a
+        >
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="HoleRow">
+      <th>PLAYERS</th>
+      <th *ngFor="let holeNumb of frontHoles">Hole {{ holeNumb }}</th>
+      <th>Out</th>
+      <th *ngFor="let holeNumb of backHoles">Hole {{ holeNumb }}</th>
+      <th>In</th>
+      <th>Total</th>
+    </tr>
+    <tr
+      class="TeeBoxRow"
+      *ngFor="let teeBoxNumb of teeBoxes"
+      style="background-color: {{
+        courseData.holes[0].teeBoxes[teeBoxNumb].teeHexColor
+      }}"
+    >
+      <th style="text-transform: uppercase">
+        {{ courseData.holes[0].teeBoxes[teeBoxNumb].teeColorType }}
+      </th>
+      <td *ngFor="let holeNumb of frontHoles">
+        {{ courseData.holes[holeNumb - 1].teeBoxes[teeBoxNumb].yards }}
+      </td>
+      <th id="_{{ teeBoxNumb }}TeeOut">
+        {{
+          courseData.holes[0].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[1].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[2].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[3].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[4].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[5].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[6].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[7].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[8].teeBoxes[teeBoxNumb].yards
+        }}
+      </th>
+      <td *ngFor="let holeNumb of backHoles">
+        {{ courseData.holes[holeNumb - 1].teeBoxes[teeBoxNumb].yards }}
+      </td>
+      <th id="_{{ teeBoxNumb }}TeeIn">
+        {{
           courseData.holes[9].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[10].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[11].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[12].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[13].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[14].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[15].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[16].teeBoxes[teeBoxNumb].yards +
-          courseData.holes[17].teeBoxes[teeBoxNumb].yards
-      }}
-    </th>
-  </tr>
-  <tr class="PlayerRow" *ngFor="let playerNumb of frontPlayers">
-    <th>
-      <input
-        placeholder="Player {{ playerNumb }}"
-        id="Player{{ playerNumb }}Name"
-      />
-    </th>
-    <td *ngFor="let holeNumb of frontHoles">
-      <input
-        type="number"
-        (change)="updateScore([playerNumb])"
-        placeholder="Hole {{ holeNumb }} Score"
-        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
-      />
-    </td>
-    <th id="_{{ playerNumb }}Out">0</th>
-    <td *ngFor="let holeNumb of backHoles">
-      <input
-        type="number"
-        (change)="updateScore([playerNumb])"
-        placeholder="Hole {{ holeNumb }} Score"
-        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
-      />
-    </td>
-    <th id="_{{ playerNumb }}In">0</th>
-    <th id="_{{ playerNumb }}Tot">0</th>
-  </tr>
-  <tr id="ParRow">
-    <th>PAR</th>
-    <td *ngFor="let holeNumb of frontHoles">
-      {{ courseData.holes[holeNumb - 1].teeBoxes[0].par }}
-    </td>
-    <th id="parOut">{{ parOut }}</th>
-    <td *ngFor="let holeNumb of backHoles">
-      {{ courseData.holes[holeNumb - 1].teeBoxes[0].par }}
-    </td>
-    <th id="parIn">{{ parIn }}</th>
-    <th id="parTot">{{ parIn + parOut }}</th>
-  </tr>
-  <tr class="PlayerRow" *ngFor="let playerNumb of backPlayers">
-    <th>
-      <input
-        placeholder="Player {{ playerNumb }}"
-        id="Player{{ playerNumb }}Name"
-      />
-    </th>
-    <td *ngFor="let holeNumb of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-      <input
-        type="number"
-        (change)="updateScore([playerNumb])"
-        placeholder="Hole {{ holeNumb }} Score"
-        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
-      />
-    </td>
-    <th id="_{{ playerNumb }}Out">0</th>
-    <td *ngFor="let holeNumb of [10, 11, 12, 13, 14, 15, 16, 17, 18]">
-      <input
-        type="number"
-        (change)="updateScore([playerNumb])"
-        placeholder="Hole {{ holeNumb }} Score"
-        id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
-      />
-    </td>
-    <th id="_{{ playerNumb }}In">0</th>
-    <th id="_{{ playerNumb }}Tot">0</th>
-  </tr>
+            courseData.holes[10].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[11].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[12].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[13].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[14].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[15].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[16].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[17].teeBoxes[teeBoxNumb].yards
+        }}
+      </th>
+      <th id="_{{ teeBoxNumb }}TeeTot">
+        {{
+          courseData.holes[0].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[1].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[2].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[3].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[4].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[5].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[6].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[7].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[8].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[9].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[10].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[11].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[12].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[13].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[14].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[15].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[16].teeBoxes[teeBoxNumb].yards +
+            courseData.holes[17].teeBoxes[teeBoxNumb].yards
+        }}
+      </th>
+    </tr>
+    <tr class="PlayerRow" *ngFor="let playerNumb of frontPlayers">
+      <th>
+        <input
+          placeholder="Player {{ playerNumb }}"
+          id="Player{{ playerNumb }}Name"
+        />
+      </th>
+      <td *ngFor="let holeNumb of frontHoles">
+        <input
+          type="number"
+          (change)="updateScore([playerNumb])"
+          placeholder="Hole {{ holeNumb }} Score"
+          id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
+        />
+      </td>
+      <th id="_{{ playerNumb }}Out">0</th>
+      <td *ngFor="let holeNumb of backHoles">
+        <input
+          type="number"
+          (change)="updateScore([playerNumb])"
+          placeholder="Hole {{ holeNumb }} Score"
+          id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
+        />
+      </td>
+      <th id="_{{ playerNumb }}In">0</th>
+      <th id="_{{ playerNumb }}Tot">0</th>
+    </tr>
+    <tr id="ParRow">
+      <th>PAR</th>
+      <td *ngFor="let holeNumb of frontHoles">
+        {{ courseData.holes[holeNumb - 1].teeBoxes[0].par }}
+      </td>
+      <th id="parOut">{{ parOut }}</th>
+      <td *ngFor="let holeNumb of backHoles">
+        {{ courseData.holes[holeNumb - 1].teeBoxes[0].par }}
+      </td>
+      <th id="parIn">{{ parIn }}</th>
+      <th id="parTot">{{ parIn + parOut }}</th>
+    </tr>
+    <tr class="PlayerRow" *ngFor="let playerNumb of backPlayers">
+      <th>
+        <input
+          placeholder="Player {{ playerNumb }}"
+          id="Player{{ playerNumb }}Name"
+        />
+      </th>
+      <td *ngFor="let holeNumb of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+        <input
+          type="number"
+          (change)="updateScore([playerNumb])"
+          placeholder="Hole {{ holeNumb }} Score"
+          id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
+        />
+      </td>
+      <th id="_{{ playerNumb }}Out">0</th>
+      <td *ngFor="let holeNumb of [10, 11, 12, 13, 14, 15, 16, 17, 18]">
+        <input
+          type="number"
+          (change)="updateScore([playerNumb])"
+          placeholder="Hole {{ holeNumb }} Score"
+          id="_{{ playerNumb }}Hole{{ holeNumb }}Score"
+        />
+      </td>
+      <th id="_{{ playerNumb }}In">0</th>
+      <th id="_{{ playerNumb }}Tot">0</th>
+    </tr>
+  </tbody>
 </table>
 <h2 id="ResponseText"></h2>
