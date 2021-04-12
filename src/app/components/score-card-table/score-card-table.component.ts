@@ -221,27 +221,33 @@ export class ScoreCardTableComponent implements OnInit {
   }
 
   getResponse(playerNumb): void {
+    let playerResponseElem = document.getElementById('ResponseText');
     let playerNameEl = document.getElementById(
       `Player${playerNumb}Name`
     ) as HTMLInputElement;
     let playerName = playerNameEl.value as string;
-    let PlayerTotal = (document.getElementById(`_${playerNumb}Tot`)
+    if (playerName == '') {
+      playerName = `Player ${playerNumb}`;
+    }
+    let playerTotal = (document.getElementById(`_${playerNumb}Tot`)
       .innerText as unknown) as number;
-    let ParTotal = (document.getElementById('parTot')
+    let parTotal = (document.getElementById('parTot')
       .innerText as unknown) as number;
-    let Score = PlayerTotal - ParTotal;
-    if (Score > 0) {
-      document.getElementById(
-        'ResponseText'
-      ).innerText += `${playerName} got a score of ${Score}. That's worse than the par.\n`;
-    } else if (Score < 0) {
-      document.getElementById(
-        'ResponseText'
-      ).innerText += `${playerName} got a score of ${Score}. That's better than the par!\n`;
-    } else if (Score == 0) {
-      document.getElementById(
-        'ResponseText'
-      ).innerText += `${playerName} got a score of ${Score}. That's the par!\n`;
+    let playerScore = playerTotal - parTotal;
+    let responseLine = '';
+    responseLine += `Good job ${playerName}! You finished! Your total was ${playerTotal} , compared to the Par, ${parTotal}. Your score (your total minus the par) is ${playerScore}!`;
+    if (playerScore > 0) {
+      responseLine += ' Better Luck Next Time!';
+    } else if (playerScore == 0) {
+      responseLine += ' Right on Target!';
+    } else {
+      responseLine += " Wow, that's amazing!";
+    }
+    if (playerResponseElem.innerText.includes(responseLine)) {
+      return;
+    } else {
+      playerResponseElem.innerText += responseLine;
+      playerResponseElem.innerHTML += `<br>`;
     }
   }
 }
